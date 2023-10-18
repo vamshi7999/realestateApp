@@ -1,8 +1,9 @@
 import User from '../modal/schema.js'
 import bcryptjs from 'bcryptjs'
+import { errorHandler } from '../utils/error.js'
 
 
-export const signUp=async(req,res)=>{
+export const signUp=async(req,res,next)=>{
     const {userName,passWord,emailId}=req.body
     const hashedPassword=bcryptjs.hashSync(passWord,10)
     try{
@@ -14,8 +15,9 @@ export const signUp=async(req,res)=>{
         await newUser.save()
         res.status(200).json('User registered successfully' );
     }catch(err){
-        console.log("--------------",err)
-        res.status(500).send("internal server error")
+       next(err)
+    //    next (errorHandler(550,"error from a function"))
+       
     }
    
 }
