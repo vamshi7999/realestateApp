@@ -13,10 +13,10 @@ export default function App() {
    <Header/>
    <Routes>
    <Route  path="/" element={<Home/>}/>
-   <Route  path="/SignIn" element={<SignIn/>}/>
+   <Route  path="/Sign-in" element={<SignIn/>}/>
    <Route  path="/Profile" element={<Profile/>}/>
    <Route  path="/about" element={<About/>}/>
-   <Route path="/sing-up" element={<SignUp/>} />
+   <Route path="/sign-up" element={<SignUp/>} />
    </Routes>
    </BrowserRouter>
   )
